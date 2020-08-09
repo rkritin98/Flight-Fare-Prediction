@@ -2,7 +2,7 @@
 """
 Created on Thu Aug  6 17:02:02 2020
 
-@author: rkrit
+@author: rkritin
 """
 import numpy as np
 import pandas as pd
@@ -271,3 +271,8 @@ forest = pickle.load(model)
 y_prediction = forest.predict(X_test)
 
 metrics.r2_score(y_test, y_prediction)
+
+
+import bz2
+with bz2.BZ2File('test.pbz2', 'w') as f:
+    pickle.dump('flight_fare_prediction_model.pkl', f)
